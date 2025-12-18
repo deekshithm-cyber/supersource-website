@@ -146,4 +146,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load default on page load
     loadModule(null);
-});
+    // Logo click to homepage
+    document.getElementById('logo').addEventListener('click', (e) => {
+        e.preventDefault();
+        loadModule(null); // Loads default hero content
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll to top
+    });
+    document.getElementById('logo').style.cursor = 'pointer'; // Changes cursor to hand on hover});
+
