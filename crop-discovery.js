@@ -11,22 +11,27 @@ document.addEventListener('DOMContentLoaded', () => {
     let crops = [];
     let autoSaveInterval;
 
-    // Get GPS location
+    // Get GPS location with error handling and timeout
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 locationInfo.textContent = `Current Location: ${position.coords.latitude}, ${position.coords.longitude} (Timestamp: ${new Date().toLocaleString()})`;
             },
             (error) => {
-                locationInfo.textContent = 'GPS unavailable. Enter manually.';
-                console.error(error);
-            }
+                let message = 'GPS unavailable. Enter manually.';
+                if (error.code === 1) message = 'GPS permission denied. Enter manually.';
+                if (error.code === 2) message = 'GPS position unavailable. Enter manually.';
+                if (error.code === 3) message = 'GPS timeout. Enter manually.';
+                locationInfo.textContent = message;
+                console.error('Geolocation error:', error);
+            },
+            { timeout: 10000 } // 10-second timeout to prevent infinite loading
         );
     } else {
-        locationInfo.textContent = 'Geolocation not supported.';
+        locationInfo.textContent = 'Geolocation not supported by browser. Enter manually.';
     }
 
-    // Add crop dynamically
+    // Add crop dynamically (rest of code unchanged from earlier)
     addCropBtn.addEventListener('click', () => {
         const cropIndex = crops.length;
         const cropSection = document.createElement('div');
@@ -43,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <input type="number" id="duration-${cropIndex}" placeholder="Duration (days)*" required min="1">
             <input type="number" id="yield-${cropIndex}" placeholder="Yield Estimate (tons/acre)*" required min="0.1" step="0.1">
             <input type="date" id="planting-date-${cropIndex}" placeholder="Planting Date (Optional)">
-            <input type="date" id="harvest-date-${cropIndex}" placeholder="="Harvest Date (Optional)">
+            <input type="date" id="harvest-date-${cropIndex}" placeholder="Harvest Date (Optional)">
             <select id="irrigation-${cropIndex}">
                 <option value="">Irrigation Type (Optional)</option>
                 <option value="Drip">Drip</option>
