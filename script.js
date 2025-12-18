@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             return;
         }
-
         let content = '';
         if (module === 'communities') {
             content = `
@@ -102,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 </section>
             `;
         }
-
         if (content) {
             mainContent.innerHTML = content;
         } else if (module === 'crop-discovery') {
@@ -140,17 +138,18 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             mainContent.innerHTML = '<section class="hero"><h2>Module not found.</h2></section>';
         }
-
         window.scrollTo({ top: mainContent.offsetTop, behavior: 'smooth' });
     }
-
     // Load default on page load
     loadModule(null);
     // Logo click to homepage
-    document.getElementById('logo').addEventListener('click', (e) => {
-        e.preventDefault();
-        loadModule(null); // Loads default hero content
-        window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll to top
-    });
-    document.getElementById('logo').style.cursor = 'pointer'; // Changes cursor to hand on hover});
-
+    const logo = document.getElementById('logo');
+    if (logo) {
+        logo.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadModule(null); // Loads default hero content
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll to top
+        });
+        logo.style.cursor = 'pointer'; // Changes cursor to hand on hover
+    }
+});
