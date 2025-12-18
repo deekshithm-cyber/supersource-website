@@ -11,11 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function loadModule(module) {
-        // Clear current content below hero
-        mainContent.innerHTML = '<section class="hero"><h2>Loading...</h2></section>';
-
-        // Mock content for homepage sections (or fetch from separate files if needed)
         let content = '';
+        if (!module) {
+            // Default: Load hero only, or add intro content
+            mainContent.innerHTML = `
+                <section class="hero">
+                    <h2>Empowering Farmers, Enhancing Yields</h2>
+                    <p>Connect with real-time data, advisory, and buyers for sustainable sourcing.</p>
+                    <a href="#get-started" class="cta">Explore More</a>
+                </section>
+            `;
+            return;
+        }
+
+        mainContent.innerHTML += '<h2>Loading ' + module + '...</h2>'; // Temporary loading
+
         if (module === 'communities') {
             content = `
                 <section id="communities" class="section">
@@ -72,29 +82,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 </section>
             `;
         } else if (module === 'crop-discovery') {
-            // Fetch from crop-discovery.html (or inline for simplicity)
             fetch('crop-discovery.html')
                 .then(response => response.text())
                 .then(html => {
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
-                    content = doc.querySelector('.section').outerHTML; // Extract main section
-                    mainContent.innerHTML = content;
-                    // Re-run module JS if needed (e.g., for forms)
+                    mainContent.innerHTML = doc.querySelector('.section').outerHTML;
                     const script = document.createElement('script');
                     script.src = 'crop-discovery.js';
                     document.body.appendChild(script);
                 })
                 .catch(() => alert('Error loading module'));
-            return; // Exit early for async fetch
+            return;
         } else if (module === 'admin-dashboard') {
             fetch('admin-dashboard.html')
                 .then(response => response.text())
                 .then(html => {
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
-                    content = doc.querySelector('.section').outerHTML;
-                    mainContent.innerHTML = content;
+                    mainContent.innerHTML = doc.querySelector('.section').outerHTML;
                     const script = document.createElement('script');
                     script.src = 'admin-dashboard.js';
                     document.body.appendChild(script);
@@ -103,10 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        mainContent.innerHTML += content; // Append below hero
+        mainContent.innerHTML = content; // Replace with content (no hero overwrite for modules)
         window.scrollTo({ top: mainContent.offsetTop, behavior: 'smooth' });
     }
 
-    // Load default (hero only)
+    // Load default on page load
     loadModule(null);
 });
