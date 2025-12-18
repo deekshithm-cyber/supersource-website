@@ -11,21 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function loadModule(module) {
-        mainContent.innerHTML = '<section class="hero"><h2>Loading...</h2></section>'; // Temporary for all calls
-
-        let content = '';
         if (!module) {
-            content = `
+            mainContent.innerHTML = `
                 <section class="hero">
                     <h2>Empowering Farmers, Enhancing Yields</h2>
                     <p>Connect with real-time data, advisory, and buyers for sustainable sourcing.</p>
                     <a href="#get-started" class="cta">Explore More</a>
                 </section>
             `;
-            mainContent.innerHTML = content;
             return;
         }
 
+        let content = '';
         if (module === 'communities') {
             content = `
                 <section id="communities" class="section">
@@ -84,39 +81,46 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="#" class="cta">Partner with Us</a>
                 </section>
             `;
+        }
+
+        if (content) {
+            mainContent.innerHTML = content;
         } else if (module === 'crop-discovery') {
+            mainContent.innerHTML = '<section class="hero"><h2>Loading...</h2></section>';
             fetch('crop-discovery.html')
                 .then(response => response.text())
                 .then(html => {
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
-                    mainContent.innerHTML = doc.querySelector('.section').outerHTML;
+                    mainContent.innerHTML = doc.querySelector('.section').outerHTML || '<h2>Error: Section not found in file.</h2>';
                     const script = document.createElement('script');
                     script.src = 'crop-discovery.js';
                     document.body.appendChild(script);
                 })
                 .catch(() => {
-                    mainContent.innerHTML = '<section class="hero"><h2>Error loading module. Check if file exists.</h2></section>';
+                    mainContent.innerHTML = '<section class="hero"><h2>Error loading module. Check if crop-discovery.html exists.</h2></section>';
                 });
             return;
         } else if (module === 'admin-dashboard') {
+            mainContent.innerHTML = '<section class="hero"><h2>Loading...</h2></section>';
             fetch('admin-dashboard.html')
                 .then(response => response.text())
                 .then(html => {
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
-                    mainContent.innerHTML = doc.querySelector('.section').outerHTML;
+                    mainContent.innerHTML = doc.querySelector('.section').outerHTML || '<h2>Error: Section not found in file.</h2>';
                     const script = document.createElement('script');
                     script.src = 'admin-dashboard.js';
                     document.body.appendChild(script);
                 })
                 .catch(() => {
-                    mainContent.innerHTML = '<section class="hero"><h2>Error loading module. Check if file exists.</h2></section>';
+                    mainContent.innerHTML = '<section class="hero"><h2>Error loading module. Check if admin-dashboard.html exists.</h2></section>';
                 });
             return;
+        } else {
+            mainContent.innerHTML = '<section class="hero"><h2>Module not found.</h2></section>';
         }
 
-        mainContent.innerHTML = content;
         window.scrollTo({ top: mainContent.offsetTop, behavior: 'smooth' });
     }
 
