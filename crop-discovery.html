@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperSource - Crop Discovery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>SuperSource</h1>
+            <p class="subtitle">Crop Discovery Module</p>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h2>Visit Initiation</h2>
+            <p id="location-info">Current Location: Loading GPS...</p>
+            <form id="farmer-form">
+                <h3>Farmer Details</h3>
+                <input type="text" id="farmer-name" placeholder="Farmer Name*" required maxlength="100">
+                <input type="text" id="farmer-id" placeholder="Farmer ID*" required pattern="[a-zA-Z0-9]+">
+                <input type="tel" id="phone" placeholder="Phone*" required pattern="\+91-\d{3}-\d{3}-\d{4}">
+                <input type="email" id="email" placeholder="Email (Optional)">
+                <textarea id="address" placeholder="Address (Optional)" maxlength="200"></textarea>
+                <input type="file" id="farmer-photo" accept="image/jpeg,image/png">
+                <div id="photo-preview"></div>
+            </form>
+
+            <form id="crop-form">
+                <h3>Crop Details (Add Multiple)</h3>
+                <div id="crops-container">
+                    <!-- Dynamic crops added here -->
+                </div>
+                <button type="button" id="add-crop">Add Crop</button>
+            </form>
+
+            <button id="save-visit">Save & Generate Summary</button>
+            <p id="offline-indicator">Offline Mode: Data will sync later.</p>
+            <div id="summary"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>SuperSource, Bangalore, India</p>
+        </div>
+    </footer>
+
+    <script src="crop-discovery.js"></script>
+</body>
+</html>
