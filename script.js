@@ -28,15 +28,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 <section id="communities" class="section">
                     <h2>Top Crop Communities</h2>
                     <div class="grid">
-                        <div class="card"><h3>Beans Haricot in Karnataka</h3><p>2500+ Farmers Digitized</p><p>11,324 Acres Covered</p><a href="#">Join Community</a></div>
-                        <div class="card"><h3>Tomatoes in Tamil Nadu</h3><p>3000+ Farmers Digitized</p><p>30,000 Acres Covered</p><a href="#">Join Community</a></div>
-                        <div class="card"><h3>Coconuts in Andhra</h3><p>3500+ Farmers Digitized</p><p>72,000 Acres Covered</p><a href="#">Join Community</a></div>
+                        <div class="card">
+                            <img src="https://cdn.britannica.com/00/3300-050-C5FB7236/Sweet-potato-farming-province-Southern-Highlands-Papua-New.jpg" alt="Beans Haricot farm" class="card-img">
+                            <h3>Beans Haricot in Karnataka</h3>
+                            <p>2500+ Farmers Digitized</p>
+                            <p>11,324 Acres Covered</p>
+                            <a href="#">Join Community</a>
+                        </div>
+                        <div class="card">
+                            <img src="https://imgs.mongabay.com/wp-content/uploads/sites/30/2022/11/12184253/4233e465-3ec0-4246-85bd-175eda4c1bf9.jpg" alt="Tomatoes farm" class="card-img">
+                            <h3>Tomatoes in Tamil Nadu</h3>
+                            <p>3000+ Farmers Digitized</p>
+                            <p>30,000 Acres Covered</p>
+                            <a href="#">Join Community</a>
+                        </div>
+                        <div class="card">
+                            <img src="https://ars.els-cdn.com/content/image/1-s2.0-S2772411522000040-gr5.jpg" alt="Coconuts farm" class="card-img">
+                            <h3>Coconuts in Andhra</h3>
+                            <p>3500+ Farmers Digitized</p>
+                            <p>72,000 Acres Covered</p>
+                            <a href="#">Join Community</a>
+                        </div>
                     </div>
                 </section>
             `;
         } else if (module === 'services') {
             content = `
                 <section id="services" class="section">
+                    <img src="https://ars.els-cdn.com/content/image/1-s2.0-S2772411522000040-gr6.jpg" alt="Agri services farm tools" class="section-img">
                     <h2>Agri Services</h2>
                     <ul>
                         <li>Personalized Crop Advisory & Recommendations</li>
@@ -51,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (module === 'linkages') {
             content = `
                 <section id="linkages" class="section">
+                    <img src="https://www.shutterstock.com/image-photo/indian-family-picking-organic-vegetables-260nw-2556815891.jpg" alt="Market linkages farmers" class="section-img">
                     <h2>Market Linkages</h2>
                     <ul>
                         <li>Farmer Sourcing & Indent Management</li>
