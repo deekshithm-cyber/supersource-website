@@ -150,4 +150,19 @@ footer a {
     .grid, .case-studies {
         grid-template-columns: 1fr;
     }
+
+}
+.hero {
+    background-image: url('https://imgs.mongabay.com/wp-content/uploads/sites/30/2022/11/12184253/4233e465-3ec0-4246-85bd-175eda4c1bf9.jpg'); /* Farm banner */
+    background-size: cover;
+    background-position: center;
+    color: white; /* For readability on image */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Shadow for text */
+}
+
+.card-img, .section-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0; /* Rounded top for cards */
+    margin-bottom: 10px;
 }
