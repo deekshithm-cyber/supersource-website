@@ -29,21 +29,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h2>Top Crop Communities</h2>
                     <div class="grid">
                         <div class="card">
-                            <img src="https://cdn.britannica.com/00/3300-050-C5FB7236/Sweet-potato-farming-province-Southern-Highlands-Papua-New.jpg" alt="Beans Haricot farm" class="card-img">
+                            <img src="https://kj1bcdn.b-cdn.net/media/25874/beans.jpg" alt="Haricot beans farm in Karnataka" class="card-img">
                             <h3>Beans Haricot in Karnataka</h3>
                             <p>2500+ Farmers Digitized</p>
                             <p>11,324 Acres Covered</p>
                             <a href="#">Join Community</a>
                         </div>
                         <div class="card">
-                            <img src="https://imgs.mongabay.com/wp-content/uploads/sites/30/2022/11/12184253/4233e465-3ec0-4246-85bd-175eda4c1bf9.jpg" alt="Tomatoes farm" class="card-img">
+                            <img src="https://images.squarespace-cdn.com/content/v1/57c8695d5016e11e71be1d83/1520631241070-SE8DP79H412DCHDUFRQV/tonato-under-drip-1-696x464.jpg" alt="Tomato farm in Tamil Nadu" class="card-img">
                             <h3>Tomatoes in Tamil Nadu</h3>
                             <p>3000+ Farmers Digitized</p>
                             <p>30,000 Acres Covered</p>
                             <a href="#">Join Community</a>
                         </div>
                         <div class="card">
-                            <img src="https://ars.els-cdn.com/content/image/1-s2.0-S2772411522000040-gr5.jpg" alt="Coconuts farm" class="card-img">
+                            <img src="https://coconutseller.in/wp-content/uploads/2021/06/Coconut-cultivation.jpg" alt="Coconut plantation in Andhra Pradesh" class="card-img">
                             <h3>Coconuts in Andhra</h3>
                             <p>3500+ Farmers Digitized</p>
                             <p>72,000 Acres Covered</p>
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (module === 'services') {
             content = `
                 <section id="services" class="section">
-                    <img src="https://ars.els-cdn.com/content/image/1-s2.0-S2772411522000040-gr6.jpg" alt="Agri services farm tools" class="section-img">
+                    <img src="http://www.zenadrone.com/wp-content/uploads/2022/10/smart-farming-and-plantation-1024x536.jpg" alt="Drone monitoring in Indian farm" class="section-img">
                     <h2>Agri Services</h2>
                     <ul>
                         <li>Personalized Crop Advisory & Recommendations</li>
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (module === 'linkages') {
             content = `
                 <section id="linkages" class="section">
-                    <img src="https://www.shutterstock.com/image-photo/indian-family-picking-organic-vegetables-260nw-2556815891.jpg" alt="Market linkages farmers" class="section-img">
+                    <img src="https://sankalpbhoomitrust.org/wp-content/uploads/2023/08/8-1024x614.png.webp" alt="Indian farmers market linkages" class="section-img">
                     <h2>Market Linkages</h2>
                     <ul>
                         <li>Farmer Sourcing & Indent Management</li>
