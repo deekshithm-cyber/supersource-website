@@ -11,29 +11,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function loadModule(module) {
+        mainContent.innerHTML = '<section class="hero"><h2>Loading...</h2></section>'; // Temporary for all calls
+
         let content = '';
         if (!module) {
-            // Default: Load hero only, or add intro content
-            mainContent.innerHTML = `
+            content = `
                 <section class="hero">
                     <h2>Empowering Farmers, Enhancing Yields</h2>
                     <p>Connect with real-time data, advisory, and buyers for sustainable sourcing.</p>
                     <a href="#get-started" class="cta">Explore More</a>
                 </section>
             `;
+            mainContent.innerHTML = content;
             return;
         }
-
-        mainContent.innerHTML += '<h2>Loading ' + module + '...</h2>'; // Temporary loading
 
         if (module === 'communities') {
             content = `
                 <section id="communities" class="section">
                     <h2>Top Crop Communities</h2>
                     <div class="grid">
-                        <div class="card"><h3>Beans Haricot in Karnataka</h3><p>2500+ Farmers</p><a href="#">Join</a></div>
-                        <div class="card"><h3>Tomatoes in Tamil Nadu</h3><p>3000+ Farmers</p><a href="#">Join</a></div>
-                        <div class="card"><h3>Coconuts in Andhra</h3><p>3500+ Farmers</p><a href="#">Join</a></div>
+                        <div class="card"><h3>Beans Haricot in Karnataka</h3><p>2500+ Farmers Digitized</p><p>11,324 Acres Covered</p><a href="#">Join Community</a></div>
+                        <div class="card"><h3>Tomatoes in Tamil Nadu</h3><p>3000+ Farmers Digitized</p><p>30,000 Acres Covered</p><a href="#">Join Community</a></div>
+                        <div class="card"><h3>Coconuts in Andhra</h3><p>3500+ Farmers Digitized</p><p>72,000 Acres Covered</p><a href="#">Join Community</a></div>
                     </div>
                 </section>
             `;
@@ -42,9 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <section id="services" class="section">
                     <h2>Agri Services</h2>
                     <ul>
-                        <li>Personalized Crop Advisory</li>
+                        <li>Personalized Crop Advisory & Recommendations</li>
+                        <li>Phygital Monitoring with GPS & Drones</li>
                         <li>Quality Checks via AQR</li>
-                        <li>Transportation Tracking</li>
+                        <li>Transportation Tracking & Cost Digitization</li>
                         <li>Weather & Market Alerts</li>
                     </ul>
                     <a href="#" class="cta">Explore Services</a>
@@ -56,8 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h2>Market Linkages</h2>
                     <ul>
                         <li>Farmer Sourcing & Indent Management</li>
-                        <li>Auction Marketplace</li>
-                        <li>Payment Automation</li>
+                        <li>Auction Marketplace for RFQs</li>
+                        <li>Payment Automation & Settlements</li>
+                        <li>Supplier Performance Scoring</li>
+                        <li>Contract Management with E-Sign</li>
                     </ul>
                     <a href="#" class="cta">Connect Now</a>
                 </section>
@@ -68,8 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h2>Ecosystem at a Glance</h2>
                     <p>Solutions for 100+ CCs & MHs by Q4 2026</p>
                     <div class="case-studies">
-                        <div class="case"><h3>Optimized Sourcing</h3><p>Reduced errors by 90%.</p><a href="#">Read More</a></div>
-                        <div class="case"><h3>Weather-Informed Decisions</h3><p>Cost savings.</p><a href="#">Read More</a></div>
+                        <div class="case"><h3>Case Study: Optimized Sourcing</h3><p>Reduced errors by 90% with real-time data.</p><a href="#">Read More</a></div>
+                        <div class="case"><h3>Case Study: Weather-Informed Decisions</h3><p>Cost savings through alerts & forecasting.</p><a href="#">Read More</a></div>
                     </div>
                 </section>
             `;
@@ -77,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             content = `
                 <section id="partner" class="section">
                     <h2>Elevate Your Operations</h2>
-                    <p>Join SuperSource for seamless digitization.</p>
+                    <p>Join SuperSource for seamless supply chain digitization.</p>
                     <a href="#" class="cta">Partner with Us</a>
                 </section>
             `;
@@ -92,7 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     script.src = 'crop-discovery.js';
                     document.body.appendChild(script);
                 })
-                .catch(() => alert('Error loading module'));
+                .catch(() => {
+                    mainContent.innerHTML = '<section class="hero"><h2>Error loading module. Check if file exists.</h2></section>';
+                });
             return;
         } else if (module === 'admin-dashboard') {
             fetch('admin-dashboard.html')
@@ -105,11 +110,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     script.src = 'admin-dashboard.js';
                     document.body.appendChild(script);
                 })
-                .catch(() => alert('Error loading module'));
+                .catch(() => {
+                    mainContent.innerHTML = '<section class="hero"><h2>Error loading module. Check if file exists.</h2></section>';
+                });
             return;
         }
 
-        mainContent.innerHTML = content; // Replace with content (no hero overwrite for modules)
+        mainContent.innerHTML = content;
         window.scrollTo({ top: mainContent.offsetTop, behavior: 'smooth' });
     }
 
