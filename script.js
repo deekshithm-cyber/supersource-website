@@ -108,11 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h3>Featured Ads</h3>
                         <div class="grid fancy-grid">
                             <div class="card ad-card">
-                                <img src="https://example.com/ad-fertilizer.jpg" alt="Fertilizer Ad">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7ZKGlnpOsxQ29VW4SREHChVqB0yszIO6Huw&s" alt="Fertilizer Ad">
                                 <p>Discount on Organic Fertilizers from AgriCo!</p>
                             </div>
                             <div class="card ad-card">
-                                <img src="https://example.com/ad-equipment.jpg" alt="Equipment Ad">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0b8Z0q-3Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0A&s" alt="Equipment Ad">
                                 <p>Rent Tractors Easily from FarmTech</p>
                             </div>
                         </div>
@@ -125,10 +125,10 @@ document.addEventListener('DOMContentLoaded', () => {
             mainContent.innerHTML = content;
             // Mock products and JS logic
             const products = [
-                { name: 'Tractor Rental', category: 'Equipment', price: 500, fee: 25, img: 'https://example.com/tractor.jpg', company: 'FarmTech' },
-                { name: 'Fertilizer Pack (10kg)', category: 'Fertilizers', price: 200, fee: 10, img: 'https://example.com/fertilizer.jpg', company: 'AgriCo' },
-                { name: 'Pesticide Spray (5L)', category: 'Pesticides', price: 150, fee: 7.5, img: 'https://example.com/pesticide.jpg', company: 'PestGuard' },
-                { name: 'Harvester Purchase', category: 'Equipment', price: 10000, fee: 500, img: 'https://example.com/harvester.jpg', company: 'HarvestPro' },
+                { name: 'Tractor Rental', category: 'Equipment', price: 500, fee: 25, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0b8Z0q-3Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0A&s', company: 'FarmTech' },
+                { name: 'Fertilizer Pack (10kg)', category: 'Fertilizers', price: 200, fee: 10, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7ZKGlnpOsxQ29VW4SREHChVqB0yszIO6Huw&s', company: 'AgriCo' },
+                { name: 'Pesticide Spray (5L)', category: 'Pesticides', price: 150, fee: 7.5, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0b8Z0q-3Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0A&s', company: 'PestGuard' },
+                { name: 'Harvester Purchase', category: 'Equipment', price: 10000, fee: 500, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0b8Z0q-3Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0A&s', company: 'HarvestPro' },
             ];
             let productsSection = document.getElementById('products-section');
             products.forEach(product => {
