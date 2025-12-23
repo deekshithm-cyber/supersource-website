@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const mainContent = document.getElementById('main-content');
     const navLinks = document.querySelectorAll('nav a');
-
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -9,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
             loadModule(module);
         });
     });
-
     function loadModule(module) {
         if (!module) {
             mainContent.innerHTML = `
@@ -100,6 +98,60 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="#" class="cta">Partner with Us</a>
                 </section>
             `;
+        } else if (module === 'marketplace') {
+            content = `
+                <section id="marketplace" class="section fancy-section">
+                    <h2>Marketplace - Buy & Rent Farm Products</h2>
+                    <p class="fancy-text">Discover premium products from trusted partners. SuperSource charges a small platform fee (5%) on transactions for seamless service.</p>
+                    <input type="text" id="search" placeholder="Search products (e.g., tractor, fertilizer)" oninput="filterProducts()" class="fancy-input">
+                    <div id="ads-section">
+                        <h3>Featured Ads</h3>
+                        <div class="grid fancy-grid">
+                            <div class="card ad-card">
+                                <img src="https://example.com/ad-fertilizer.jpg" alt="Fertilizer Ad">
+                                <p>Discount on Organic Fertilizers from AgriCo!</p>
+                            </div>
+                            <div class="card ad-card">
+                                <img src="https://example.com/ad-equipment.jpg" alt="Equipment Ad">
+                                <p>Rent Tractors Easily from FarmTech</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="products-section" class="grid fancy-grid">
+                        <!-- Dynamic products -->
+                    </div>
+                </section>
+            `;
+            mainContent.innerHTML = content;
+            // Mock products and JS logic
+            const products = [
+                { name: 'Tractor Rental', category: 'Equipment', price: 500, fee: 25, img: 'https://example.com/tractor.jpg', company: 'FarmTech' },
+                { name: 'Fertilizer Pack (10kg)', category: 'Fertilizers', price: 200, fee: 10, img: 'https://example.com/fertilizer.jpg', company: 'AgriCo' },
+                { name: 'Pesticide Spray (5L)', category: 'Pesticides', price: 150, fee: 7.5, img: 'https://example.com/pesticide.jpg', company: 'PestGuard' },
+                { name: 'Harvester Purchase', category: 'Equipment', price: 10000, fee: 500, img: 'https://example.com/harvester.jpg', company: 'HarvestPro' },
+            ];
+            let productsSection = document.getElementById('products-section');
+            products.forEach(product => {
+                productsSection.innerHTML += `
+                    <div class="card product-card">
+                        <img src="${product.img}" alt="${product.name}">
+                        <h3>${product.name} (${product.category})</h3>
+                        <p>Price: ₹${product.price} + Fee: ₹${product.fee}</p>
+                        <p>From: ${product.company}</p>
+                        <button class="cta fancy-btn" onclick="alert('Purchasing ${product.name} for ₹${product.price + product.fee}. Redirecting to payment...')">Buy/Rent</button>
+                    </div>
+                `;
+            });
+            // Search filter
+            window.filterProducts = () => {
+                const query = document.getElementById('search').value.toLowerCase();
+                const cards = document.querySelectorAll('.product-card');
+                cards.forEach(card => {
+                    const name = card.querySelector('h3').textContent.toLowerCase();
+                    card.style.display = name.includes(query) ? 'block' : 'none';
+                });
+            };
+            return;
         }
         if (content) {
             mainContent.innerHTML = content;
