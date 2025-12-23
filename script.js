@@ -108,11 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h3>Featured Ads</h3>
                         <div class="grid fancy-grid">
                             <div class="card ad-card">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7ZKGlnpOsxQ29VW4SREHChVqB0yszIO6Huw&s" alt="Fertilizer Ad">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7ZKGlnpOsxQ29VW4SREHChVqB0yszIO6Huw&s" alt="Organic Fertilizer Ad">
                                 <p>Discount on Organic Fertilizers from AgriCo!</p>
                             </div>
                             <div class="card ad-card">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0b8Z0q-3Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0A&s" alt="Equipment Ad">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvxsbZN7EFtF7vSf6zQPbqKu2mt6xFkoBAZA&s" alt="Tractor Rental Ad">
                                 <p>Rent Tractors Easily from FarmTech</p>
                             </div>
                         </div>
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainContent.innerHTML = content;
             // Mock products and JS logic
             const products = [
-                { name: 'Tractor Rental', category: 'Equipment', price: 500, fee: 25, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0b8Z0q-3Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0A&s', company: 'FarmTech' },
+                { name: 'Tractor Rental', category: 'Equipment', price: 500, fee: 25, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvxsbZN7EFtF7vSf6zQPbqKu2mt6xFkoBAZA&s', company: 'FarmTech' },
                 { name: 'Fertilizer Pack (10kg)', category: 'Fertilizers', price: 200, fee: 10, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7ZKGlnpOsxQ29VW4SREHChVqB0yszIO6Huw&s', company: 'AgriCo' },
                 { name: 'Pesticide Spray (5L)', category: 'Pesticides', price: 150, fee: 7.5, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0b8Z0q-3Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0A&s', company: 'PestGuard' },
                 { name: 'Harvester Purchase', category: 'Equipment', price: 10000, fee: 500, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0b8Z0q-3Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0Z0A&s', company: 'HarvestPro' },
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch('admin-dashboard.html')
                 .then(response => response.text())
                 .then(html => {
-                    const parser = new DOMParser();
+                    const parser = new DOM Parser();
                     const doc = parser.parseFromString(html, 'text/html');
                     mainContent.innerHTML = doc.querySelector('.section').outerHTML || '<h2>Error: Section not found in file.</h2>';
                     const script = document.createElement('script');
